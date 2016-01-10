@@ -4,7 +4,7 @@ import argparse
 import json
 
 parser = argparse.ArgumentParser(description="Return an attribute of every object")
-parser.add_argument("database", type=argparse.FileType("rw+"), help="database file")
+parser.add_argument("database", type=argparse.FileType("r"), help="database file")
 parser.add_argument("attr", help="attribute to return")
 args = parser.parse_args()
 database = json.load(args.database)
