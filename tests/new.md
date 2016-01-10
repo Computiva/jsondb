@@ -2,7 +2,7 @@
 
 	$ cat <<< "[]" > animals.json
 
-	$ jsondb-new animals.json type:dog name:Rex
+	$ jsondb-new animals.json 'type:"dog"' 'name:"Rex"'
 
 	$ grep -o '.type.*dog.' < animals.json
 	< "type": "dog"

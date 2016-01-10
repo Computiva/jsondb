@@ -8,7 +8,7 @@ parser.add_argument("database", type=argparse.FileType("rw+"), help="database fi
 parser.add_argument("attr", nargs="*", help="attribute of new object")
 args = parser.parse_args()
 database = json.load(args.database)
-database.append(dict(map(lambda attr: attr.split(":"), args.attr)))
+database.append(dict(map(lambda attr: [attr[0], eval(attr[1])], map(lambda attr: attr.split(":"), args.attr))))
 args.database.seek(0)
 json.dump(database, args.database)
 args.database.write("\n")
